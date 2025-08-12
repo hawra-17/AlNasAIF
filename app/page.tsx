@@ -72,7 +72,7 @@ export default function AlNasHospital() {
         } else {
           setShowPopup(false);
         }
-      }, 5000); // Increased to 5 seconds to make messages more readable
+      }, 4500); // Increased to 5 seconds to make messages more readable
 
       return () => clearTimeout(timer);
     }
@@ -151,7 +151,7 @@ export default function AlNasHospital() {
                       {/* Chat bubble popup coming directly from doctor */}
                       {showPopup && currentPopup < popupMessages.length && (
                         <div className="absolute top-1/2 left-full transform -translate-y-1/2 ml-2 z-20">
-                          <div className="bg-blue-500 text-white text-sm px-4 py-3 rounded-lg shadow-lg animate-fade-in-fixed w-[225px] text-left">
+                          <div className="bg-blue-500 text-white text-sm px-4 py-3 rounded-lg shadow-lg animate-fade-in-fixed min-w-[140px] max-w-[225px] whitespace-normal text-left inline-block">
                             {popupMessages[currentPopup]}
                             {/* Chat bubble tail pointing to doctor */}
                             <div className="absolute top-1/2 right-full transform -translate-y-1/2">
@@ -183,7 +183,7 @@ export default function AlNasHospital() {
                   <Alert className="mb-4 bg-yellow-50 border-yellow-200 text-yellow-800">
                     <AlertTitle>Important!</AlertTitle>
                     <AlertDescription>
-                      Notes are automatically deleted after 2 weeks.
+                      Notes are automatically deleted after two weeks.
                     </AlertDescription>
                   </Alert>
                   <div className="flex-1 overflow-y-auto space-y-2 mb-4 max-h-60">
@@ -291,7 +291,7 @@ export default function AlNasHospital() {
           }
         }
         .animate-fade-in-fixed {
-          animation: fade-in-fixed 0.5s ease-out;
+          animation: fade-in-fixed 0.45s ease-out;
         }
       `}</style>
     </div>
