@@ -19,7 +19,7 @@ export default function AlNasHospital() {
 
   const popupMessages = [
     "Hi how are you?",
-    "I'm the AI of Alnas Hospital",
+    "I'm the AI of Al Nas Hospital",
     "Ask me anything about the hospital and I will tell you",
   ];
 
@@ -72,7 +72,7 @@ export default function AlNasHospital() {
         } else {
           setShowPopup(false);
         }
-      }, 3000);
+      }, 5000); // Increased to 5 seconds to make messages more readable
 
       return () => clearTimeout(timer);
     }
@@ -151,7 +151,7 @@ export default function AlNasHospital() {
                       {/* Chat bubble popup coming directly from doctor */}
                       {showPopup && currentPopup < popupMessages.length && (
                         <div className="absolute top-1/2 left-full transform -translate-y-1/2 ml-2 z-20">
-                          <div className="bg-blue-500 text-white text-sm px-4 py-3 rounded-lg shadow-lg animate-fade-in w-[225px] text-left">
+                          <div className="bg-blue-500 text-white text-sm px-4 py-3 rounded-lg shadow-lg animate-fade-in-fixed w-[225px] text-left">
                             {popupMessages[currentPopup]}
                             {/* Chat bubble tail pointing to doctor */}
                             <div className="absolute top-1/2 right-full transform -translate-y-1/2">
@@ -282,18 +282,16 @@ export default function AlNasHospital() {
         </div>
       </footer>
       <style jsx>{`
-        @keyframes fade-in {
+        @keyframes fade-in-fixed {
           from {
             opacity: 0;
-            transform: translateY(-10px) translateX(-50%);
           }
           to {
             opacity: 1;
-            transform: translateY(0) translateX(-50%);
           }
         }
-        .animate-fade-in {
-          animation: fade-in 0.3s ease-out;
+        .animate-fade-in-fixed {
+          animation: fade-in-fixed 0.5s ease-out;
         }
       `}</style>
     </div>
